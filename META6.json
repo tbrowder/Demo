@@ -1,0 +1,26 @@
+{
+  "auth": "zef:tbrowder",
+  "authors": [
+    "Tom Browder"
+  ],
+  "build-depends": [
+  ],
+  "depends": [
+  ],
+  "description": "Demonstrates access to $?DISTRIBUTION and %?RESOURCES for installed module distributions",
+  "license": "Artistic-2.0",
+  "name": "Demo",
+  "perl": "6.d",
+  "provides": {
+    "Demo": "lib/Demo.rakumod"
+  },
+  "resources": [
+    "file1"
+  ],
+  "source-url": "",
+  "tags": [
+  ],
+  "test-depends": [
+  ],
+  "version": "0.0.1"
+}

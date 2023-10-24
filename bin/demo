@@ -1,0 +1,11 @@
+#!/usr/bin/env raku
+
+use Demo;
+
+if not @*ARGS {
+    print qq:to/HERE/;
+    Usage: {$*PROGRAM.basename} go
+    HERE
+    exit;
+}
+

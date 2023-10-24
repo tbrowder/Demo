@@ -1,0 +1,45 @@
+=begin pod
+
+=head1 NAME
+
+B<Demo> - Demonstrates access to C<$?DISTRIBUTION> and C<%?RESOURCES> for installed module distributions
+
+=head1 SYNOPSIS
+
+=begin code :lang<raku>
+
+use Demo;
+
+=end code
+
+=head1 DESCRIPTION
+
+B<Demo> aims to demonstrate use of the special variables, 
+C<$?DISTRIBUTION> 
+and 
+C<%?RESOURCES>, 
+to access files
+included in an installed module distribution.
+
+This module has a binary executable, C<demo>, which, when executed,
+shows the results of using the variables to access the following
+file (all text files):
+
+=begin code
+bin/demo
+resources/file1     # <== this file is listed in the C<META6.json> file
+resources/file2     # <== this file is B<not> in the C<META6.json> file
+t/01-basic.rakutest
+=end code.
+
+=head1 AUTHOR
+
+Tom Browder <tbrowder@acm.org>
+
+=head1 COPYRIGHT AND LICENSE
+
+© 2023 Tom Browder
+
+This library is free software; you may redistribute it or modify it under the Artistic License 2.0.
+
+=end pod
