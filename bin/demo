@@ -21,27 +21,10 @@ if not @*ARGS {
 my $arg = @*ARGS.shift;
 $nlines = $arg ~~ /^\d+$/ ?? $arg !! 0;
 
-#say "DEBUG: \$nlines = $nlines"; exit;
-
-say "Contents of '$f1':";
-$s = get-content $f1, :$nlines;
-say "  $_" for $s.lines;
-say();
-
-say "Contents of '$f2':";
-$s = get-content $f2, :$nlines;
-say "  $_" for $s.lines;
-say();
-
-say "Contents of '$f3':";
-$s = get-content $f3, :$nlines;
-say "  $_" for $s.lines;
-say();
-
-say "Contents of '$f4':";
-$s = get-content $f4, :$nlines;
-say "  $_" for $s.lines;
-say();
-
-
+for $f1, $f2, $f3, $f4 -> $f {
+    say "Contents of '$f':";
+    my $s = get-content $f, :$nlines;
+    say "  $_" for $s.lines;
+    say();
+}
 
