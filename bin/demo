@@ -2,10 +2,46 @@
 
 use Demo;
 
+my $f1 = "resources/file1";
+my $f2 = "resources/file2";
+my $f3 = "t/01-basic.rakutest";
+my $f4 = "lib/Demo.rakumod";
+my $s;
+
+my $nlines;
 if not @*ARGS {
     print qq:to/HERE/;
-    Usage: {$*PROGRAM.basename} go
+    Usage: {$*PROGRAM.basename} <number of lines> | all
+
+    Shows the contents of the distribution's files.   
     HERE
     exit;
 }
+
+my $arg = @*ARGS.shift;
+$nlines = $arg ~~ /^\d+$/ ?? $arg !! 0;
+
+#say "DEBUG: \$nlines = $nlines"; exit;
+
+say "Contents of '$f1':";
+$s = get-content $f1, :$nlines;
+say "  $_" for $s.lines;
+say();
+
+say "Contents of '$f2':";
+$s = get-content $f2, :$nlines;
+say "  $_" for $s.lines;
+say();
+
+say "Contents of '$f3':";
+$s = get-content $f3, :$nlines;
+say "  $_" for $s.lines;
+say();
+
+say "Contents of '$f4':";
+$s = get-content $f4, :$nlines;
+say "  $_" for $s.lines;
+say();
+
+
 
