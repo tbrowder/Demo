@@ -2,23 +2,19 @@
 
 =head1 NAME
 
-B<Demo> - Demonstrates access to C<$?DISTRIBUTION> and C<%?RESOURCES> for installed module distributions
+B<Demo> - Demonstrates access to C<$?DISTRIBUTION> and C<%?RESOURCES>
+          for installed module distributions
 
 =head1 SYNOPSIS
 
 =begin code :lang<raku>
-
 use Demo;
-
 =end code
 
 =head1 DESCRIPTION
 
-B<Demo> aims to demonstrate use of the special variables, 
-C<$?DISTRIBUTION> 
-and 
-C<%?RESOURCES>, 
-to access files
+B<Demo> aims to demonstrate use of the special variables,
+C<$?DISTRIBUTION> and C<%?RESOURCES>, to access files
 included in an installed module distribution.
 
 This module has a binary executable, C<demo>, which, when executed,
@@ -31,7 +27,7 @@ resources/file1     # <== listed in the C<META6.json> file
 resources/file2     # <== listed in the C<META6.json> file
 lib/Demo.rakumod    # <== listed in the C<META6.json> file
 t/01-basic.rakutest # <== B<NOT> listed in the C<META6.json> file
-=end code.
+=end code
 
 =head1 AUTHOR
 
@@ -41,6 +37,7 @@ Tom Browder <tbrowder@acm.org>
 
 © 2023 Tom Browder
 
-This library is free software; you may redistribute it or modify it under the Artistic License 2.0.
+This library is free software; you may redistribute it or modify it
+under the Artistic License 2.0.
 
 =end pod
