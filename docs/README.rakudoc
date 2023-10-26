@@ -27,9 +27,10 @@ file (all text files):
 
 =begin code
 bin/demo
-resources/file1     # <== this file is listed in the C<META6.json> file
-resources/file2     # <== this file is B<not> in the C<META6.json> file
-t/01-basic.rakutest
+resources/file1     # <== listed in the C<META6.json> file
+resources/file2     # <== listed in the C<META6.json> file
+lib/Demo.rakumod    # <== listed in the C<META6.json> file
+t/01-basic.rakutest # <== B<NOT> listed in the C<META6.json> file
 =end code.
 
 =head1 AUTHOR

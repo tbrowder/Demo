@@ -15,7 +15,9 @@
     "Demo": "lib/Demo.rakumod"
   },
   "resources": [
-    "file1"
+    "file1",
+    "file2",
+    "../lib/Demo.rakumod"
   ],
   "source-url": "",
   "tags": [

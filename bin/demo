@@ -4,8 +4,8 @@ use Demo;
 
 my $f1 = "resources/file1";
 my $f2 = "resources/file2";
-my $f3 = "t/01-basic.rakutest";
-my $f4 = "lib/Demo.rakumod";
+my $f3 = "resources/../lib/Demo.rakumod";
+my $f4 = "resources/../t/01-basic.rakutest";
 my $s;
 
 my $nlines;
@@ -22,8 +22,13 @@ my $arg = @*ARGS.shift;
 $nlines = $arg ~~ /^\d+$/ ?? $arg !! 0;
 
 for $f1, $f2, $f3, $f4 -> $f {
+#for $f1, $f2 -> $f {
     say "Contents of '$f':";
     my $s = get-content $f, :$nlines;
+    unless $s {
+        say "  File '$f' is not accessible.";
+        next;
+    }
     say "  $_" for $s.lines;
     say();
 }
