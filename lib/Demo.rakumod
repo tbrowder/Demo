@@ -20,6 +20,22 @@ sub get-content($path, :$nlines = 0) is export {
     }
 }
 
+=begin comment
+# doesn't work
+sub file-exists($file) is export {
+    # check %?RESOURCES.keys
+    my $f = $file.IO.basename;
+    my @res;
+    for %?RESOURCES.keys {
+        note "DEBUG: $_";
+        when /$f/ {
+           @res.push: $_;
+        }
+    }
+    @res
+}
+=end comment
+
 sub get-resource($path) is export {
     %?RESOURCES{$path}.slurp;
 }
@@ -27,9 +43,16 @@ sub get-resource($path) is export {
 sub resource-exists($path? --> Bool) is export {
     return False if not $path.defined;
 
+    # from Nick
+    return so try $?DISTRIBUTION.content($path).open(:r).close; # may die
+
+    =begin comment
     my $exists = $?DISTRIBUTION.content($path); # may die
     return True if $exists;
+    =end comment
 }
+
+=finish
 
 {
     my $return = resource-exists;
