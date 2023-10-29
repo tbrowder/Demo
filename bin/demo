@@ -11,7 +11,7 @@ my $s;
 my $nlines;
 if not @*ARGS {
     print qq:to/HERE/;
-    Usage: {$*PROGRAM.basename} <number of lines> | all
+    Usage: {$*PROGRAM.basename} <number of lines [min 2] > | all
 
     Shows the contents of the distribution's files.   
     HERE
@@ -20,30 +20,16 @@ if not @*ARGS {
 
 my $arg = @*ARGS.shift;
 $nlines = $arg ~~ /^\d+$/ ?? $arg !! 0;
+++$nlines if $nlines == 1
 
 for $f1, $f2, $f3, $f4 -> $f {
-    =begin comment
-    say "Status of file $f:"; #Contents of '$f':";
-    my @f = file-exists $f;
-    my $n = @f.elems;
-    my $s = $n > 1 ?? "s" !! "";
-    if @f.elems {
-        say "  Found the following path$s:";
-        say "    $_" for @f.sort;
-    }
-    else {
-        say " Not found.";
-    }
-    =end comment
- 
-    #=begin comment
     my $s = get-content $f, :$nlines;
     unless $s {
         say "  File '$f' is not accessible.";
         next;
     }
-    say "  $_" for $s.lines;
+   
+    say "  line $k: $v" for $s.lines.kv;
     say();
-    #=end comment
 }
 

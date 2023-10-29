@@ -43,31 +43,10 @@ sub get-resource($path) is export {
 sub resource-exists($path? --> Bool) is export {
     return False if not $path.defined;
 
-
+    # "eats" both warnings and errors; fix coming to Zef
+    # as of 2023-10-29
+    # current working code courtesy of @ugexe
     try {
-        so $?DISTRIBUTION.content($path).open(:r).close; # may die
+        so quietly $?DISTRIBUTION.content($path).open(:r).close; # may die
     } // False;
-
-    =begin comment
-    # from Nick
-    return so try $?DISTRIBUTION.content($path).open(:r).close; # may die
-
-    my $exists = $?DISTRIBUTION.content($path); # may die
-    return True if $exists;
-    =end comment
-}
-
-=finish
-
-{
-    my $return = resource-exists;
-    #say "Returned $return";
-    CATCH {
-        default {
-  .Str.say
-            #say "Error ", .^name, ': ',.Str;
-         #   $return = False;
-         #   .resume;
-        }
-    }
 }
