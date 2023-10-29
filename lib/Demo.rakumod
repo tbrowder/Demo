@@ -45,8 +45,8 @@ sub resource-exists($path? --> Bool) is export {
 
 
     try {
-    return so try $?DISTRIBUTION.content($path).open(:r).close; # may die
-    }
+    so $?DISTRIBUTION.content($path).open(:r).close; # may die
+    } // False;
 
     =begin comment
     # from Nick
@@ -57,16 +57,17 @@ sub resource-exists($path? --> Bool) is export {
     =end comment
 }
 
-#=finish
+=finish
 
 {
     my $return = resource-exists;
-    say "Returned $return";
+    #say "Returned $return";
     CATCH {
         default {
-            say "Error ", .^name, ': ',.Str;
-            $return = False;
-            .resume;
+  .Str.say
+            #say "Error ", .^name, ': ',.Str;
+         #   $return = False;
+         #   .resume;
         }
     }
 }
