@@ -20,16 +20,20 @@ if not @*ARGS {
 
 my $arg = @*ARGS.shift;
 $nlines = $arg ~~ /^\d+$/ ?? $arg !! 0;
-++$nlines if $nlines == 1
+++$nlines if $nlines == 1;
 
 for $f1, $f2, $f3, $f4 -> $f {
     my $s = get-content $f, :$nlines;
     unless $s {
-        say "  File '$f' is not accessible.";
+        say "==File '$f' is not accessible.";
         next;
     }
    
-    say "  line $k: $v" for $s.lines.kv;
+    say "==File '$f':";
+    for $s.lines.kv -> $i is copy, $v {
+        my $n = sprintf "%2d", ++$i;
+        say "    line $n: $v";
+    }
     say();
 }
 
