@@ -45,7 +45,7 @@ sub resource-exists($path? --> Bool) is export {
 
 
     try {
-    so $?DISTRIBUTION.content($path).open(:r).close; # may die
+        so $?DISTRIBUTION.content($path).open(:r).close; # may die
     } // False;
 
     =begin comment
