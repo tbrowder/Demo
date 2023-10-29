@@ -43,16 +43,21 @@ sub get-resource($path) is export {
 sub resource-exists($path? --> Bool) is export {
     return False if not $path.defined;
 
+
+    try {
+    return so try $?DISTRIBUTION.content($path).open(:r).close; # may die
+    }
+
+    =begin comment
     # from Nick
     return so try $?DISTRIBUTION.content($path).open(:r).close; # may die
 
-    =begin comment
     my $exists = $?DISTRIBUTION.content($path); # may die
     return True if $exists;
     =end comment
 }
 
-=finish
+#=finish
 
 {
     my $return = resource-exists;
