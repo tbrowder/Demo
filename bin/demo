@@ -1,11 +1,11 @@
 #!/usr/bin/env raku
 
-use Demo;
+use HowToUseModuleResources;
 
 =begin comment
 my $f1 = "resources/file1";
 my $f2 = "resources/file2";
-my $f3 = "resources/../lib/Demo.rakumod";
+my $f3 = "resources/../lib/HowToUseModuleResources.rakumod";
 my $f4 = "resources/../t/01-basic.rakutest";
 =end comment
 
@@ -16,7 +16,7 @@ if not @*ARGS {
     print qq:to/HERE/;
     Usage: {$*PROGRAM.basename} <number of lines [min 2] > | all
 
-    Shows the contents of the distribution's files.   
+    Shows the contents of the distribution's files.
     HERE
     exit;
 }
@@ -38,7 +38,7 @@ for @rpaths -> $f {
         say "==File '$f' is not accessible.";
         next;
     }
-   
+
     say "==File '$f':";
     for $s.lines.kv -> $i is copy, $v {
         my $n = sprintf "%2d", ++$i;
@@ -46,4 +46,3 @@ for @rpaths -> $f {
     }
     say();
 }
-

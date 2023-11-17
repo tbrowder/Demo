@@ -1,5 +1,5 @@
 use Test;
-use Demo;
+use HowToUseModuleResources;
 
 pass "replace me";
 
