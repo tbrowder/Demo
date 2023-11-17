@@ -19,10 +19,9 @@ included in an installed module distribution.
 
 This module has a binary executable, C<demo>, which, when executed,
 shows the results of using the variable to access the following
-file (all text files):
+file (all text files, but any type file should work):
 
 =begin code
-bin/demo
 resources/file1      # <== listed in the C<META6.json> file
 resources/file2      # <== listed in the C<META6.json> file
 resources/sdir/file3 # <== listed in the C<META6.json> file
@@ -34,7 +33,7 @@ The provided subroutines may be used to provide users of the
 installed module to access the contents of resources files.
 
 For the moment, authors must list the desired resources twice:
-once in the CMETA6.json> file and once in the source code's
+once in the C]META6.json> file and once in the source code's
 C<resources> directory.
 
 Eventally, C<App::Mi6>'s C<mi6> binary program's C<build> command
