@@ -2,8 +2,8 @@
 
 =head1 NAME
 
-B<Demo> - Demonstrates access to C<$?DISTRIBUTION> and C<%?RESOURCES>
-          for installed module distributions
+B<Demo> - Demonstrates access to C<$?DISTRIBUTION>
+          "resources" for installed module distributions
 
 =head1 SYNOPSIS
 
@@ -13,21 +13,34 @@ use Demo;
 
 =head1 DESCRIPTION
 
-B<Demo> aims to demonstrate use of the special variables,
-C<$?DISTRIBUTION> and C<%?RESOURCES>, to access files
+B<Demo> aims to demonstrate use of the special variable,
+C<$?DISTRIBUTION>, to access files
 included in an installed module distribution.
 
 This module has a binary executable, C<demo>, which, when executed,
-shows the results of using the variables to access the following
+shows the results of using the variable to access the following
 file (all text files):
 
 =begin code
 bin/demo
-resources/file1     # <== listed in the C<META6.json> file
-resources/file2     # <== listed in the C<META6.json> file
-lib/Demo.rakumod    # <== listed in the C<META6.json> file
-t/01-basic.rakutest # <== B<NOT> listed in the C<META6.json> file
+resources/file1      # <== listed in the C<META6.json> file
+resources/file2      # <== listed in the C<META6.json> file
+resources/sdir/file3 # <== listed in the C<META6.json> file
+lib/Demo.rakumod     # <== listed in the C<META6.json> file
+t/01-basic.rakutest  # <== B<NOT> listed in the C<META6.json> file
 =end code
+
+The provided subroutines may be used to provide users of the
+installed module to access the contents of resources files.
+
+For the moment, authors must list the desired resources twice:
+once in the CMETA6.json> file and once in the source code's
+C<resources> directory.
+
+Eventally, C<App::Mi6>'s C<mi6> binary program's C<build> command
+will ensure the C<META6.json>'s C<resources> list is the exact
+duplicate of the source C<resources> directory so the author
+will not have to maintain two lists.
 
 =head1 AUTHOR
 

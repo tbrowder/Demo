@@ -17,9 +17,10 @@
   "resources": [
     "file1",
     "file2",
+    "sdir/file3",
     "../lib/Demo.rakumod"
   ],
-  "source-url": "",
+  "source-url": "https://github.com/tbrowder/Demo.git",
   "tags": [
   ],
   "test-depends": [

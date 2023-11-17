@@ -2,10 +2,13 @@
 
 use Demo;
 
+=begin comment
 my $f1 = "resources/file1";
 my $f2 = "resources/file2";
 my $f3 = "resources/../lib/Demo.rakumod";
 my $f4 = "resources/../t/01-basic.rakutest";
+=end comment
+
 my $s;
 
 my $nlines;
@@ -18,11 +21,18 @@ if not @*ARGS {
     exit;
 }
 
+my $debug = 0;
 my $arg = @*ARGS.shift;
 $nlines = $arg ~~ /^\d+$/ ?? $arg !! 0;
 ++$nlines if $nlines == 1;
 
-for $f1, $f2, $f3, $f4 -> $f {
+my @rpaths = get-resources-paths :$debug;
+say "Resource paths:";
+say "  $_" for @rpaths;
+
+say "Contents:";
+#for $f1, $f2, $f3, $f4 -> $f {
+for @rpaths -> $f {
     my $s = get-content $f, :$nlines;
     unless $s {
         say "==File '$f' is not accessible.";

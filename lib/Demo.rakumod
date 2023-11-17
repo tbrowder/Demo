@@ -1,5 +1,15 @@
 unit module Demo;
 
+sub get-resources-paths(:$debug --> List) is export {
+    =begin comment
+    my @list = $?DISTRIBUTION.content($_) for
+        $?DISTRIBUTION.meta<resources>.map({"resources/$_"});
+    =end comment
+    my @list = 
+        $?DISTRIBUTION.meta<resources>.map({"resources/$_"});
+    @list
+}
+
 sub get-content($path, :$nlines = 0) is export {
     my $exists = resource-exists $path;
     unless $exists { return 0; }
@@ -18,27 +28,7 @@ sub get-content($path, :$nlines = 0) is export {
     else {
         $s
     }
-}
-
-=begin comment
-# doesn't work
-sub file-exists($file) is export {
-    # check %?RESOURCES.keys
-    my $f = $file.IO.basename;
-    my @res;
-    for %?RESOURCES.keys {
-        note "DEBUG: $_";
-        when /$f/ {
-           @res.push: $_;
-        }
-    }
-    @res
-}
-=end comment
-
-sub get-resource($path) is export {
-    %?RESOURCES{$path}.slurp;
-}
+} # sub get-content($path, :$nlines = 0) is export {
 
 sub resource-exists($path? --> Bool) is export {
     return False if not $path.defined;
