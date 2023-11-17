@@ -32,6 +32,11 @@ For the moment, authors must list the desired resources twice: once in the CMETA
 
 Eventally, `App::Mi6`'s `mi6` binary program's `build` command will ensure the `META6.json`'s `resources` list is the exact duplicate of the source `resources` directory so the author will not have to maintain two lists.
 
+CREDITS
+=======
+
+Thanks to Nick Logan (@ugexe on Github and IRC #raku) for his advice and his powerful `zef` program.
+
 AUTHOR
 ======
 

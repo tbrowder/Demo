@@ -42,6 +42,10 @@ will ensure the C<META6.json>'s C<resources> list is the exact
 duplicate of the source C<resources> directory so the author
 will not have to maintain two lists.
 
+=head1 CREDITS
+
+Thanks to Nick Logan (@ugexe on Github and IRC #raku) for his advice and his powerful C<zef> program.
+
 =head1 AUTHOR
 
 Tom Browder <tbrowder@acm.org>
