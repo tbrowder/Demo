@@ -18,10 +18,11 @@
     "file1",
     "file2",
     "sdir/file3",
-    "../lib/Demo.rakumod"
+    "../lib/HowToUseModuleResources.rakumod"
   ],
-  "source-url": "https://github.com/tbrowder/Demo.git",
+  "source-url": "https://github.com/tbrowder/HowToUseModuleResources.git",
   "tags": [
+    "module distributions resources installed precomp"
   ],
   "test-depends": [
   ],
