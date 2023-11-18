@@ -2,6 +2,8 @@ Revision history for HowToUseModuleResources
 
 {{$NEXT}}
     - Improve README
+    - Add link to App::Mi6 (Github mi6) for ease of checking
+      status of issue #176
 
 0.0.1  2023-11-17T15:23:07-06:00
     - Initial version
