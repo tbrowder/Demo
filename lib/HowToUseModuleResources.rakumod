@@ -1,10 +1,6 @@
 unit module HowToUseModuleResources;
 
 sub get-resources-paths(:$debug --> List) is export {
-    =begin comment
-    my @list = $?DISTRIBUTION.content($_) for
-        $?DISTRIBUTION.meta<resources>.map({"resources/$_"});
-    =end comment
     my @list =
         $?DISTRIBUTION.meta<resources>.map({"resources/$_"});
     @list

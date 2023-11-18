@@ -7,7 +7,7 @@
   ],
   "depends": [
   ],
-  "description": "Demonstrates access to $?DISTRIBUTION and %?RESOURCES for installed module distributions",
+  "description": "Demonstrates access to $?DISTRIBUTION for installed module distributions",
   "license": "Artistic-2.0",
   "name": "HowToUseModuleResources",
   "perl": "6.d",

@@ -2,13 +2,6 @@
 
 use HowToUseModuleResources;
 
-=begin comment
-my $f1 = "resources/file1";
-my $f2 = "resources/file2";
-my $f3 = "resources/../lib/HowToUseModuleResources.rakumod";
-my $f4 = "resources/../t/01-basic.rakutest";
-=end comment
-
 my $s;
 
 my $nlines;
@@ -16,7 +9,7 @@ if not @*ARGS {
     print qq:to/HERE/;
     Usage: {$*PROGRAM.basename} <number of lines [min 2] > | all
 
-    Shows the contents of the distribution's files.
+    Shows the contents of the distribution's "./resources' files.
     HERE
     exit;
 }
@@ -31,7 +24,6 @@ say "Resource paths:";
 say "  $_" for @rpaths;
 
 say "Contents:";
-#for $f1, $f2, $f3, $f4 -> $f {
 for @rpaths -> $f {
     my $s = get-content $f, :$nlines;
     unless $s {
